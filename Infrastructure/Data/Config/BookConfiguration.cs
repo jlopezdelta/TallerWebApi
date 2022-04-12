@@ -16,7 +16,6 @@ namespace Infrastructure.Data.Config
             builder.HasOne(p => p.Categoria).WithMany().HasForeignKey(p => p.CategoriaId).IsRequired();
             builder.HasOne(p => p.Editorial).WithMany().HasForeignKey(p => p.EditorialId).IsRequired();
             builder.Property(p => p.Titulo).IsRequired().HasMaxLength(100);
-            builder.Property(p => p.Autor).IsRequired().HasMaxLength(100);
             builder.Property(p => p.FechaDePublicacion).IsRequired();
             builder.Property(p => p.NumeroDePaginas).IsRequired();
             builder.Property(p => p.Precio).IsRequired().HasColumnType("decimal(18,2)");
