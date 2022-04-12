@@ -4,14 +4,16 @@ using Infrastructure.Data.AppDbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    partial class StoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220412155116_MigrationFive")]
+    partial class MigrationFive
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,21 +194,17 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.AuthorCategory", b =>
                 {
-                    b.HasOne("Core.Entities.Author", "Author")
+                    b.HasOne("Core.Entities.Author", null)
                         .WithMany("AuthorCategory")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.Category", "Category")
+                    b.HasOne("Core.Entities.Category", null)
                         .WithMany("AuthorCategory")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Core.Entities.Book", b =>

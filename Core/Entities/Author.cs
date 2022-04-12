@@ -12,6 +12,6 @@ namespace Core.Entities
         public string Apellidos { get; set; }
         public DateTime FechaDeNacimiento { get; set; }
         public Book Book { get; set; }
-
+        public ICollection<AuthorCategory> AuthorCategory { get; set; } = new List<AuthorCategory>();
     }
 }

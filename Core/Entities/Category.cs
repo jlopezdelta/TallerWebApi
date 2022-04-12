@@ -9,6 +9,9 @@ namespace Core.Entities
     public class Category:BaseEntity
     {
         public string Nombre { get; set; }
+
         public string Descripcion { get; set; }
+        public ICollection<AuthorCategory> AuthorCategory { get; set; } = new List<AuthorCategory>();
+
     }
 }

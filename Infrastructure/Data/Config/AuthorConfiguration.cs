@@ -16,7 +16,7 @@ namespace Infrastructure.Data.Config
             builder.HasOne(c => c.Book).WithOne().HasForeignKey<Book>(p => p.AutorId);
             builder.Property(p => p.Nombres).IsRequired().HasMaxLength(100);
             builder.Property(p => p.Apellidos).IsRequired().HasMaxLength(100);
-            builder.Property(p => p.FechaDeNacimiento).IsRequired();
+            builder.Property(p => p.FechaDeNacimiento).IsRequired().HasAnnotation("Uno",null);
         }
     }
 }

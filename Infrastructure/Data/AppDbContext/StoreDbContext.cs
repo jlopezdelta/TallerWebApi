@@ -18,10 +18,12 @@ namespace Infrastructure.Data.AppDbContext
         public DbSet<Category>  Category    { get; set; }
         public DbSet<Editorial> Editorial   { get; set; }
         public DbSet<Author>    Author      { get; set; }
+        public DbSet<AuthorCategory> AuthorCategory { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.Entity<AuthorCategory>().HasKey(ac => new { ac.AuthorId, ac.CategoryId });
         }
 
 
